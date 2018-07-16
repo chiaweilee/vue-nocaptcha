@@ -80,8 +80,8 @@ export default {
             nc: nc
           })
         },
-        error: function (s) {
-          console.error(s)
+        error: function (err) {
+          _this.$emit('error', err)
         }
       }).reset()
     }
