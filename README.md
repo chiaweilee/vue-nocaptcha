@@ -40,6 +40,7 @@ export default {
 | lang | string      |     | Language set from Aliyun|
 | @load | function | | event on noCAPTCHA load |
 | @callback | function | | callback when verify success |
+| @error | function | | error callback when verify fail |
 
 ## Smartcaptcha Parameter
 
