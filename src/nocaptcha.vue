@@ -63,7 +63,7 @@ export default {
       const ncToken = [this.appkey, (new Date()).getTime(), Math.random()].join(':')
       const noCaptcha = window.noCaptcha || window.NoCaptcha
       const init = this.h5 ? noCaptcha.init : noCaptcha
-      const ncScene = this.h5 ? this.h5scene : this.scene
+      const ncScene = this.h5 ? (this.h5scene || this.scene) : this.scene
       const nc = init({
         renderTo: '#' + _this.id,
         appkey: _this.appkey,
