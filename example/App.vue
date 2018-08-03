@@ -4,19 +4,11 @@
       :aeis="true"
       :appkey="'FFFF00000000016AB730'"
       :scene="'test'"
-      h5
       :h5scene="'test'"
       :lang="'ar-ae'"
       @load="load"
       @error="err"
       @callback="callback"
-    />
-    <nocaptcha
-      :aeis="true"
-      :appkey="'FFFF00000000016AB730'"
-      :scene="'test'"
-      :h5scene="'test'"
-      :lang="'ar-ae'"
     />
     <div>Status: {{ loaded }}</div>
     <div>Callback: {{ !!capData }}</div>

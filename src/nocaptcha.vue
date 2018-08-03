@@ -4,6 +4,7 @@
 
 <script>
 import getLang from './lang'
+import isMobile from './isMobile'
 import VueScript2 from 'vue-script2'
 
 const url = {
@@ -25,8 +26,10 @@ export default {
     }
   },
   props: {
-    h5: {type: Boolean, default: false},
+    h5: {type: Boolean, default: isMobile()},
     appkey: {type: String, required: true},
+    // eslint-disable-next-line
+    h5appkey: {type: String},
     scene: {type: String, required: true},
     // eslint-disable-next-line
     h5scene: {type: String},
@@ -63,10 +66,11 @@ export default {
       const ncToken = [this.appkey, (new Date()).getTime(), Math.random()].join(':')
       const noCaptcha = window.noCaptcha || window.NoCaptcha
       const init = this.h5 ? noCaptcha.init : noCaptcha
+      const appkey = this.h5 ? (this.h5appkey || this.appkey) : this.appkey
       const ncScene = this.h5 ? (this.h5scene || this.scene) : this.scene
       const nc = init({
         renderTo: '#' + _this.id,
-        appkey: _this.appkey,
+        appkey: appkey,
         scene: ncScene,
         token: ncToken,
         language: lang,
