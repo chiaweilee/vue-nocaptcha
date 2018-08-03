@@ -63,10 +63,10 @@ export default {
     _initCaptcha () {
       const _this = this
       const lang = getLang(this.lang, this.h5)
-      const ncToken = [this.appkey, (new Date()).getTime(), Math.random()].join(':')
+      const appkey = this.h5 ? (this.h5appkey || this.appkey) : this.appkey
+      const ncToken = [appkey, (new Date()).getTime(), Math.random()].join(':')
       const noCaptcha = window.noCaptcha || window.NoCaptcha
       const init = this.h5 ? noCaptcha.init : noCaptcha
-      const appkey = this.h5 ? (this.h5appkey || this.appkey) : this.appkey
       const ncScene = this.h5 ? (this.h5scene || this.scene) : this.scene
       const nc = init({
         renderTo: '#' + _this.id,
