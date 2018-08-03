@@ -8,12 +8,12 @@ import VueScript2 from 'vue-script2'
 
 const url = {
   g: {
-    pc: '//g.alicdn.com/sd/ncpc/nc.js?t=1497440454594',
-    h5: '//g.alicdn.com/sd/nch5/index.js?t=1497436353263'
+    pc: '//g.alicdn.com/sd/ncpc/nc.js',
+    h5: '//g.alicdn.com/sd/nch5/index.js'
   },
   aeis: {
-    pc: '//aeis.alicdn.com/sd/ncpc/nc.js?t=1497440454594',
-    h5: '//aeis.alicdn.com/sd/nch5/index.js?t=1497436353263'
+    pc: '//aeis.alicdn.com/sd/ncpc/nc.js',
+    h5: '//aeis.alicdn.com/sd/nch5/index.js'
   }
 }
 
@@ -49,10 +49,8 @@ export default {
         _this._initCaptcha()
         _this.$emit('load')
       } else {
-        // not load
-        // TODO issue in h5
-        // url[!this.aeis ? 'g' : 'aeis'][!this.h5 ? 'pc' : 'h5']
-        VueScript2.load(url[!this.aeis ? 'g' : 'aeis']['pc'])
+        // not loaded
+        VueScript2.load(url[!this.aeis ? 'g' : 'aeis'][!this.h5 ? 'pc' : 'h5'])
           .then(function () {
             _this._initCaptcha()
             _this.$emit('load')
@@ -61,13 +59,14 @@ export default {
     },
     _initCaptcha () {
       const _this = this
-      const lang = getLang(this.lang)
+      const lang = getLang(this.lang, this.h5)
       const ncToken = [this.appkey, (new Date()).getTime(), Math.random()].join(':')
       const noCaptcha = window.noCaptcha || window.NoCaptcha
+      const init = this.h5 ? noCaptcha.init : noCaptcha
       const ncScene = this.h5 ? this.h5scene : this.scene
-      const nc = noCaptcha({
+      const nc = init({
         renderTo: '#' + _this.id,
-        appkey: this.appkey,
+        appkey: _this.appkey,
         scene: ncScene,
         token: ncToken,
         language: lang,
@@ -83,7 +82,9 @@ export default {
         error: function (err) {
           _this.$emit('error', err)
         }
-      }).reset()
+      })
+      this.h5 && noCaptcha.setEnabled(true)
+      nc.reset()
     }
   }
 }
