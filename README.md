@@ -34,7 +34,7 @@ export default {
 |Parameter         | Type           | Default  | |
 | ------------- |:-------------:| -----:|:-------------:|
 | aeis      | bool | false | Use Oversea CDN (Default China) |
-| h5      | bool      |  false*** | Use H5 Script|
+| h5      | bool      |  false | Use in H5|
 | appkey | string      |    FFFF0000.... | appkey from Aliyun Account|
 | scene | string      |     | scene from Aliyun Account|
 | lang | string      |     | Language set from Aliyun|
@@ -47,7 +47,7 @@ export default {
 |Parameter         | Type           | Default  | |
 | ------------- |:-------------:| -----:|:-------------:|
 | aeis      | bool | false | Use Oversea CDN (Default China) |
-| h5      | bool      |  false*** | Use H5 Script|
+| h5      | bool      |  false*** | Use in H5|
 | appkey | string      |    FFFF0000.... | appkey from Aliyun Account|
 | scene | string      |     | scene from Aliyun Account|
 | @load | function | | event on noCAPTCHA load |
@@ -56,5 +56,8 @@ export default {
 
 For more infomation, please check Doc of Aliyun or my code.
 
-*** h5 script is abandoned.
 *** TODO fix issue, sciprt reported error when using h5 script...
+
+## Issue
+
+- *Can not use Pc/H5 nocaptcha in same page*
