@@ -1,6 +1,7 @@
 <template>
   <div>
     <nocaptcha
+      https
       :aeis="true"
       :appkey="'FFFF00000000016AB730'"
       :scene="'test'"

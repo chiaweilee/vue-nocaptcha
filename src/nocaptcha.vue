@@ -26,6 +26,7 @@ export default {
     }
   },
   props: {
+    https: {type: Boolean, default: false},
     h5: {type: Boolean, default: isMobile()},
     appkey: {type: String, required: true},
     // eslint-disable-next-line
@@ -53,7 +54,7 @@ export default {
         _this.$emit('load')
       } else {
         // not loaded
-        VueScript2.load(url[!this.aeis ? 'g' : 'aeis'][!this.h5 ? 'pc' : 'h5'])
+        VueScript2.load((this.https ? 'https:' : 'http:') + url[!this.aeis ? 'g' : 'aeis'][!this.h5 ? 'pc' : 'h5'])
           .then(function () {
             _this._initCaptcha()
             _this.$emit('load')

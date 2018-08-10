@@ -33,6 +33,7 @@ export default {
 
 |Parameter         | Type           | Default  | |
 | ------------- |:-------------:| -----:|:-------------:|
+| https     | bool | false | Use https                  |
 | aeis      | bool | false | Use Oversea CDN (Default China) |
 | h5      | bool      |  false | Use in H5|
 | appkey | string      |    FFFF0000.... | appkey from Aliyun Account|
