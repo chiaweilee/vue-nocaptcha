@@ -1,6 +1,14 @@
 # vue-nocaptcha
 Aliyun noCAPTCHA for Vue
 
+## 0.2.0 Breaking of noCAPTCHA
+
+- refactor use 'nc.js/nch5.js' locally, not create script again.
+- force assets to use https when https prop equal True.
+- BTW, fxxking Chinese telecom hijack the internet.
+- use 'npm run update' to update 'nc.js/nch5.js' if you fork this project.
+- min size from 52kb to 516kb, included 25kb (index.min.js) / nc.js (522kb, async) / nch5 (169kb, async).
+
 ## Install
 ```cmd
 npm install vue-nocaptcha

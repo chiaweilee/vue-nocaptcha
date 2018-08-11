@@ -2,11 +2,11 @@
   <div>
     <nocaptcha
       https
-      :aeis="true"
+      aeis
       :appkey="'FFFF00000000016AB730'"
       :scene="'test'"
       :h5scene="'test'"
-      :lang="'ar-ae'"
+      :lang="'en'"
       @load="load"
       @error="err"
       @callback="callback"

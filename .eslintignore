@@ -4,3 +4,5 @@
 /*.js
 /test/unit/coverage/
 /example/Kline/
+/src/nc.js
+/src/nch5.js

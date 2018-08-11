@@ -5,18 +5,8 @@
 <script>
 import getLang from './lang'
 import isMobile from './isMobile'
-import VueScript2 from 'vue-script2'
-
-const url = {
-  g: {
-    pc: '//g.alicdn.com/sd/ncpc/nc.js',
-    h5: '//g.alicdn.com/sd/nch5/index.js'
-  },
-  aeis: {
-    pc: '//aeis.alicdn.com/sd/ncpc/nc.js',
-    h5: '//aeis.alicdn.com/sd/nch5/index.js'
-  }
-}
+import nc from './nc'
+import nch5 from './nch5'
 
 export default {
   data () {
@@ -54,11 +44,14 @@ export default {
         _this.$emit('load')
       } else {
         // not loaded
-        VueScript2.load((this.https ? 'https:' : 'http:') + url[!this.aeis ? 'g' : 'aeis'][!this.h5 ? 'pc' : 'h5'])
-          .then(function () {
-            _this._initCaptcha()
-            _this.$emit('load')
-          })
+        // nc.js fork from alibaba
+        if (this.h5) {
+          nch5((this.aeis, this.https))
+          _this._initCaptcha()
+        } else {
+          nc((this.aeis, this.https))
+          _this._initCaptcha()
+        }
       }
     },
     _initCaptcha () {
