@@ -9,6 +9,8 @@ Aliyun noCAPTCHA for Vue
 - use 'npm run update' to update 'nc.js/nch5.js' if you fork this project.
 - min size from 52kb to 516kb, included 25kb (index.min.js) / nc.js (522kb, async) / nch5 (169kb, async).
 
+* Use 0.1.8 if you don't like it. *
+
 ## Install
 ```cmd
 npm install vue-nocaptcha
