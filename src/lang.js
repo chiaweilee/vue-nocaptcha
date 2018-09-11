@@ -1,4 +1,4 @@
-const langs = {
+var langs = {
   pc: [
     'ar_SA', // 阿拉伯文
     'de_DE', // 德文
@@ -26,13 +26,13 @@ const langs = {
   ]
 }
 
-const more = {
+var more = {
   'ar-ae': 'ar_SA',
   'zh-cn': 'cn',
   'zh-tw': 'tw'
 }
 
-const getLang = function (lang, isH5 = false) {
+var getLang = function (lang, isH5 = false) {
   lang = more[lang] || lang
   if (langs[isH5 ? 'h5' : 'pc'].indexOf(lang) > -1) return lang
   console.warn('[Vue-NoCaptcha] No support lang package for \'' + lang + '\', use \'en\' instead.')
