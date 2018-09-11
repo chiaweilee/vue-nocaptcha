@@ -32,9 +32,9 @@ var more = {
   'zh-tw': 'tw'
 }
 
-var getLang = function (lang, isH5 = false) {
+var getLang = function (lang, isH5/* = false, issue IE ES5 */) {
   lang = more[lang] || lang
-  if (langs[isH5 ? 'h5' : 'pc'].indexOf(lang) > -1) return lang
+  if (langs[!isH5 ? 'pc' : 'h5'].indexOf(lang) > -1) return lang
   console.warn('[Vue-NoCaptcha] No support lang package for \'' + lang + '\', use \'en\' instead.')
   return 'en'
 }
