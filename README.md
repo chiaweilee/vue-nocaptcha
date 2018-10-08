@@ -58,7 +58,7 @@ npm install vue-nocaptcha
 
 *as component (suggest)*
 
-```vue
+```js
 import { nocaptcha } from 'vue-nocaptcha'
 export default {
     components: {
@@ -70,7 +70,7 @@ export default {
 
 *as global component*
 
-```vue
+```js
 import Vue from 'vue'
 import nocaptcha from 'vue-nocaptcha'
 Vue.use(nocaptcha)
