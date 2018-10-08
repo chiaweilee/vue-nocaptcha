@@ -62,8 +62,7 @@ npm install vue-nocaptcha
 import { nocaptcha } from 'vue-nocaptcha'
 export default {
     components: {
-        nocaptcha,
-        smartcaptcha
+        nocaptcha
     }
 }
 ```
