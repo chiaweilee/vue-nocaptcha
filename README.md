@@ -1,20 +1,28 @@
-# vue-nocaptcha
+# Vue-noCAPTCHA
+
+Aliyun noCAPTCHA
 
 <a href="https://npmcharts.com/compare/vue-nocaptcha?minimal=true"><img src="https://img.shields.io/npm/dm/vue-nocaptcha.svg" alt="Downloads"></a>
 <a href="https://www.npmjs.com/package/vue-nocaptcha"><img src="https://img.shields.io/npm/v/vue-nocaptcha.svg" alt="Version"></a>
 <a href="https://www.npmjs.com/package/vue-nocaptcha"><img src="https://img.shields.io/npm/l/vue-nocaptcha.svg" alt="License"></a>
 
-Aliyun noCAPTCHA for Vue
+*Vue.js 2 Only*
 
-## 0.2.0 Breaking of noCAPTCHA
+## What this do
 
-- refactor use 'nc.js/nch5.js' locally, not create script again.
-- force assets to use https when https prop equal True.
-- BTW, fxxking Chinese telecom hijack the internet.
-- use 'npm run update' to update 'nc.js/nch5.js' if you fork this project.
-- min size from 52kb to 516kb, included 25kb (index.min.js) / nc.js (522kb, async) / nch5 (169kb, async).
+* Use Aliyun noCAPTCHA in Vue
+* Use noCAPTCHA locally, load fast!
+* Support both Desktop and H5 noCAPTCHA
+* Support full https request
+* Support language switch
 
-* Use 0.1.8 if you don't like it. *
+## Version
+
+*Please Keep Update*
+
+nc.js /* v1.2.25,1.2.26,1 2018-09-20 09:41:53 */
+
+nch5.js /* v1.2.25,1.2.26,1 2018-09-20 10:34:24 */
 
 ## Install
 ```cmd
@@ -22,13 +30,36 @@ npm install vue-nocaptcha
 ```
 
 ## Usage
+
+*base usage*
+
 ```html
-<nocaptcha></nocaptcha>
-<smartcaptcha></smartcaptcha>
+<nocaptcha
+  :appkey="'FFFF00000000016AB730'"
+  :scene="'test'"
+  @callback="getToken"
+></nocaptcha>
 ```
 
+*desktop and h5 set*
+```html
+<nocaptcha
+  :appkey="{
+    pc: 'FFFF00000000016AB730',
+    h5: 'FFFF00000000016AB730'
+  }"
+  :scene="{
+    pc: 'test',
+    h5: 'h5test'
+  }"
+  @callback="getToken"
+></nocaptcha>
+```
+
+*as component (suggest)*
+
 ```vue
-import { nocaptcha, smartcaptcha } from 'vue-nocaptcha'
+import { nocaptcha } from 'vue-nocaptcha'
 export default {
     components: {
         nocaptcha,
@@ -37,43 +68,46 @@ export default {
 }
 ```
 
+*as global component*
+
 ```vue
+import Vue from 'vue'
 import nocaptcha from 'vue-nocaptcha'
-export default {
-    Vue.use(nocaptcha)
-}
+Vue.use(nocaptcha)
 ```
 
-## NoCaptcha Parameter
+###more
 
-|Parameter         | Type           | Default  | |
-| ------------- |:-------------:| -----:|:-------------:|
-| https     | bool | false | Use https                  |
-| aeis      | bool | false | Use Oversea CDN (Default China) |
-| h5      | bool      |  false | Use in H5|
-| appkey | string      |    FFFF0000.... | appkey from Aliyun Account|
-| scene | string      |     | scene from Aliyun Account|
-| lang | string      |     | Language set from Aliyun|
-| @load | function | | event on noCAPTCHA load |
-| @callback | function | | callback when verify success |
-| @error | function | | error callback when verify fail |
+*use https*
 
-## Smartcaptcha Parameter
+```html
+<nocaptcha
+  https
+></nocaptcha>
+```
 
-|Parameter         | Type           | Default  | |
-| ------------- |:-------------:| -----:|:-------------:|
-| aeis      | bool | false | Use Oversea CDN (Default China) |
-| h5      | bool      |  false*** | Use in H5|
-| appkey | string      |    FFFF0000.... | appkey from Aliyun Account|
-| scene | string      |     | scene from Aliyun Account|
-| @load | function | | event on noCAPTCHA load |
-| @callback | function | | callback when verify success |
-| option | object | | option of smartcaptcha |
+*use oversea CDN*
 
-For more infomation, please check Doc of Aliyun or my code.
+```html
+<nocaptcha
+  aeis
+></nocaptcha>
+```
 
-*** TODO fix issue, sciprt reported error when using h5 script...
+*use lang*
 
-## Issue
+```html
+<nocaptcha
+  lang="'vi_VN'"
+></nocaptcha>
+```
 
-- *Can not use Pc/H5 nocaptcha in same page*
+*events*
+
+```html
+<nocaptcha
+  @load="onLoad"
+  @callback="onSuccess"
+  @error="onError"
+></nocaptcha>
+```
