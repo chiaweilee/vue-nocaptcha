@@ -1,8 +1,7 @@
 import Vue from 'Vue'
 import App from './App.vue'
 
-import nocaptcha from '../lib/index'
-// import {nocaptcha, smartcaptcha} from '../src/index'
+import nocaptcha from '../src/index'
 
 Vue.config.productionTip = false
 Vue.use(nocaptcha)

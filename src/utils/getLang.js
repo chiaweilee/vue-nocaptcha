@@ -1,4 +1,4 @@
-var langs = {
+const preset = {
   pc: [
     'ar_SA', // 阿拉伯文
     'de_DE', // 德文
@@ -23,20 +23,18 @@ var langs = {
     'cn', // 简体中文
     'tw', // 繁体中文
     'en' // 英文
-  ]
+  ],
+  extend: {
+    'ar-ae': 'ar_SA',
+    'zh-cn': 'cn',
+    'zh-tw': 'tw'
+  }
 }
 
-var more = {
-  'ar-ae': 'ar_SA',
-  'zh-cn': 'cn',
-  'zh-tw': 'tw'
-}
-
-var getLang = function (lang, isH5/* = false, issue IE ES5 */) {
-  lang = more[lang] || lang
-  if (langs[!isH5 ? 'pc' : 'h5'].indexOf(lang) > -1) return lang
-  console.warn('[Vue-NoCaptcha] No support lang package for \'' + lang + '\', use \'en\' instead.')
+export default function (lang, isH5, validate) {
+  lang = preset.extend[lang] || lang
+  if (preset[!isH5 ? 'pc' : 'h5'].indexOf(lang) > -1) {
+    return lang
+  }
   return 'en'
 }
-
-export default getLang

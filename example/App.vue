@@ -3,9 +3,11 @@
     <nocaptcha
       https
       aeis
-      :appkey="'FFFF00000000016AB730'"
+      :appkey="{
+        pc: 'FFFF00000000016AB730',
+        h5: 'FFFF00000000016AB730'
+      }"
       :scene="'test'"
-      :h5scene="'test'"
       :lang="'en'"
       @load="load"
       @error="err"

@@ -1,4 +1,4 @@
-import nocaptcha from './nocaptcha.vue'
+import nocaptcha from './nocaptcha.js'
 
 export {
   nocaptcha

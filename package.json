@@ -1,7 +1,7 @@
 {
   "name": "vue-nocaptcha",
   "description": "Alibaba Aliyun NoCaptcha for Vue 2",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "+v <ljw@live.jp>",
   "repository": {
     "type": "git",
@@ -15,10 +15,13 @@
     "build-watch": "cross-env NODE_ENV=production webpack --config ./build/webpack.release.js --progress --hide-modules --watch",
     "release": "npm run build",
     "es5": "babel src --presets babel-preset-es2015 --out-dir lib",
+    "lint": "eslint --ext .js,.vue src example --fix",
     "update": "node script/update"
   },
   "keywords": [],
-  "dependencies": {},
+  "dependencies": {
+    "ismobilejs": "^0.4.1"
+  },
   "devDependencies": {
     "animejs": "^2.0.2",
     "autoprefixer": "^7.1.3",
