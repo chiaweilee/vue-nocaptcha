@@ -16,17 +16,51 @@ Aliyun noCAPTCHA
 * Support full https request
 * Support language switch
 
-## Version
-
-*Please Keep Update*
-
-nc.js /* v1.2.25,1.2.26,1 2018-09-20 09:41:53 */
-
-nch5.js /* v1.2.25,1.2.26,1 2018-09-20 10:34:24 */
-
 ## Install
 ```cmd
 npm install vue-nocaptcha
+```
+
+## Version
+
+*NOTE: Please Keep Update this plugin to maintain nc.js and nch5.js files fresh*
+
+there's 3 versions of Vue-noCAPTCHA now.
+
+* full version (support both desktop and H5)
+
+```js
+// import { nocaptcha } from 'vue-nocaptcha'
+import nocaptcha from 'vue-nocaptcha/nocaptcha.js'
+export default {
+    components: {
+        nocaptcha
+    }
+}
+```
+
+And,
+
+* single desktop version
+
+```js
+import nocaptcha from 'vue-nocaptcha/nocaptcha_pc.js'
+export default {
+    components: {
+        nocaptcha
+    }
+}
+```
+
+* single H5 version
+
+```js
+import nocaptcha from 'vue-nocaptcha/nocaptcha_h5.js'
+export default {
+    components: {
+        nocaptcha
+    }
+}
 ```
 
 ## Usage
@@ -74,6 +108,20 @@ import Vue from 'vue'
 import nocaptcha from 'vue-nocaptcha'
 Vue.use(nocaptcha)
 ```
+
+*pc/h5 version control*
+
+*Normally, it can be control automatic.*
+
+Maybe, you need control it yourself.
+
+```html
+<nocaptcha
+  :h5="isMobile()"
+></nocaptcha>
+```
+
+*NOTE: no h5 prop in single PC/H5 version*
 
 ###more
 
