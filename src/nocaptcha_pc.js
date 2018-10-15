@@ -1,20 +1,14 @@
+import { single } from './props'
+import template from './public/template'
+import name from './public/name'
+import render from './public/render'
 import getLang from './utils/getLang'
 import ncpc from './ali/nc'
 import version from './ali/version'
 
-const Static = {
-  type: Boolean,
-  default: false
-}
-
-const RequiredString = {
-  type: String,
-  required: true
-}
-
 export default {
-  name: 'NoCAPTCHA',
-  template: '<div :id="this.id"/>',
+  name,
+  template,
   data () {
     return {
       version: version.nc,
@@ -22,16 +16,7 @@ export default {
       id: `nc-${parseInt(Math.random() * 1000000000)}`
     }
   },
-  props: {
-    appkey: RequiredString,
-    scene: RequiredString,
-    aeis: Static,
-    https: Static,
-    lang: {
-      type: String,
-      default: 'en'
-    }
-  },
+  props: single,
   created () {
     // check install
     if (!window.noCaptcha) {
@@ -45,7 +30,7 @@ export default {
     // init
     const { appkey, scene, lang } = this
     const token = `${appkey}:${(new Date()).getTime()}:${Math.random()}`
-    const init = noCaptcha = window.noCaptcha
+    const init = window.noCaptcha
     const nc = this.nc = init({
       renderTo: `#${this.id}`,
       appkey: appkey,
@@ -72,14 +57,5 @@ export default {
       this.nc.destroy()
     }
   },
-  render (h) {
-    return h(
-      'div',
-      {
-        attrs: {
-          id: this.id
-        }
-      }
-    )
-  }
+  render
 }

@@ -1,31 +1,15 @@
-import { isMobile, getLang } from './utils'
+import { mix } from './props'
+import template from './public/template'
+import name from './public/name'
+import render from './public/render'
 import ncpc from './ali/nc'
 import nch5 from './ali/nch5'
 import version from './ali/version'
-
-const Static = {
-  type: Boolean,
-  default: false
-}
-
-const MixSetting = {
-  type: [String, Object],
-  validator (set) {
-    return (typeof set === 'string' && set.length > 0) ||
-    (
-      typeof set === 'object' &&
-      (
-        (set.hasOwnProperty('pc') && set.pc.length > 0) ||
-        (set.hasOwnProperty('h5') && set.h5.length > 0)
-      )
-    )
-  },
-  required: true
-}
+import getLang from './utils/getLang'
 
 export default {
-  name: 'NoCAPTCHA',
-  template: '<div :id="this.id"/>',
+  name,
+  template,
   data () {
     return {
       version,
@@ -33,20 +17,7 @@ export default {
       id: `nc-${parseInt(Math.random() * 1000000000)}`
     }
   },
-  props: {
-    appkey: MixSetting,
-    scene: MixSetting,
-    aeis: Static,
-    https: Static,
-    h5: {
-      type: Boolean,
-      default: isMobile
-    },
-    lang: {
-      type: String,
-      default: 'en'
-    }
-  },
+  props: mix,
   created () {
     // check install
     if (!window.noCaptcha && !window.NoCaptcha) {
@@ -86,6 +57,7 @@ export default {
     }
     // init
     const { appkey, scene, h5, lang } = getProps()
+    console.log({ appkey, scene, h5, lang })
     const token = `${appkey}:${(new Date()).getTime()}:${Math.random()}`
     const noCaptcha = window.noCaptcha || window.NoCaptcha
     const init = h5 ? noCaptcha.init : noCaptcha
@@ -118,14 +90,5 @@ export default {
       this.nc.destroy()
     }
   },
-  render (h) {
-    return h(
-      'div',
-      {
-        attrs: {
-          id: this.id
-        }
-      }
-    )
-  }
+  render
 }
