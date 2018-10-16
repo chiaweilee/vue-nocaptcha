@@ -31,7 +31,7 @@ there's 3 versions of Vue-noCAPTCHA now.
 
 ```js
 // import { nocaptcha } from 'vue-nocaptcha'
-import nocaptcha from 'vue-nocaptcha/nocaptcha.js'
+import nocaptcha from 'vue-nocaptcha/lib/nocaptcha.js'
 export default {
     components: {
         nocaptcha
@@ -44,7 +44,7 @@ And,
 * single desktop version
 
 ```js
-import nocaptcha from 'vue-nocaptcha/nocaptcha_pc.js'
+import nocaptcha from 'vue-nocaptcha/lib/nocaptcha_pc.js'
 export default {
     components: {
         nocaptcha
@@ -55,7 +55,7 @@ export default {
 * single H5 version
 
 ```js
-import nocaptcha from 'vue-nocaptcha/nocaptcha_h5.js'
+import nocaptcha from 'vue-nocaptcha/lib/nocaptcha_h5.js'
 export default {
     components: {
         nocaptcha
