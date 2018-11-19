@@ -1,7 +1,5 @@
 # Vue-noCAPTCHA
 
-Aliyun noCAPTCHA
-
 <a href="https://npmcharts.com/compare/vue-nocaptcha?minimal=true"><img src="https://img.shields.io/npm/dm/vue-nocaptcha.svg" alt="Downloads"></a>
 <a href="https://www.npmjs.com/package/vue-nocaptcha"><img src="https://img.shields.io/npm/v/vue-nocaptcha.svg" alt="Version"></a>
 <a href="https://www.npmjs.com/package/vue-nocaptcha"><img src="https://img.shields.io/npm/l/vue-nocaptcha.svg" alt="License"></a>
@@ -10,11 +8,11 @@ Aliyun noCAPTCHA
 
 ## What this do
 
-* Use Aliyun noCAPTCHA in Vue
-* Use noCAPTCHA locally, load fast!
-* Support both Desktop and H5 noCAPTCHA
-* Support full https request
-* Support language switch
+1. LoadAsync
+2. LoadFast 🔜
+3. Support Desktop and Mobile 📱💻
+4. Support Full HTTPS 🔒
+5. Support Languages 🇨🇳🇺🇸🇬🇧🇯🇵🇩🇪🇪🇸🇫🇷🇮🇩🇮🇹🇰🇷🇳🇱🇵🇱🇷🇺🇹🇭🇹🇷🇻🇳
 
 ## Install
 ```cmd
@@ -25,9 +23,7 @@ npm install vue-nocaptcha
 
 *NOTE: Please Keep Update this plugin to maintain nc.js and nch5.js files fresh*
 
-there's 3 versions of Vue-noCAPTCHA now.
-
-* full version (support both desktop and H5)
+## Full version (both Desktop and Mobile)
 
 ```js
 // import { nocaptcha } from 'vue-nocaptcha'
@@ -39,9 +35,7 @@ export default {
 }
 ```
 
-And,
-
-* single desktop version
+## Single Desktop version
 
 ```js
 import nocaptcha from 'vue-nocaptcha/lib/nocaptcha_pc.js'
@@ -52,7 +46,7 @@ export default {
 }
 ```
 
-* single H5 version
+## Single Mobile version
 
 ```js
 import nocaptcha from 'vue-nocaptcha/lib/nocaptcha_h5.js'
@@ -65,7 +59,7 @@ export default {
 
 ## Usage
 
-*base usage*
+### base usage
 
 ```html
 <nocaptcha
@@ -75,7 +69,7 @@ export default {
 ></nocaptcha>
 ```
 
-*desktop and h5 set*
+#### *desktop and h5 set*
 ```html
 <nocaptcha
   :appkey="{
@@ -90,7 +84,7 @@ export default {
 ></nocaptcha>
 ```
 
-*as component (suggest)*
+#### *as component (suggest)*
 
 ```js
 import { nocaptcha } from 'vue-nocaptcha'
@@ -101,7 +95,7 @@ export default {
 }
 ```
 
-*as global component*
+#### *as global component*
 
 ```js
 import Vue from 'vue'
@@ -109,7 +103,7 @@ import nocaptcha from 'vue-nocaptcha'
 Vue.use(nocaptcha)
 ```
 
-*pc/h5 version control*
+#### *pc/h5 version control*
 
 *Normally, it can be control automatic.*
 
@@ -123,7 +117,7 @@ Maybe, you need control it yourself.
 
 *NOTE: no h5 prop in single PC/H5 version*
 
-###more
+### more
 
 *use https*
 
