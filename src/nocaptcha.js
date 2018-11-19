@@ -57,7 +57,6 @@ export default {
     }
     // init
     const { appkey, scene, h5, lang } = getProps()
-    console.log({ appkey, scene, h5, lang })
     const token = `${appkey}:${(new Date()).getTime()}:${Math.random()}`
     const noCaptcha = window.noCaptcha || window.NoCaptcha
     const init = h5 ? noCaptcha.init : noCaptcha
