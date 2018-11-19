@@ -2,9 +2,9 @@ import { single } from './props'
 import template from './public/template'
 import name from './public/name'
 import render from './public/render'
-import getLang from './utils/getLang'
 import nch5 from './ali/nch5'
 import version from './ali/version'
+import { getLang, setId } from './utils'
 
 export default {
   name,
@@ -13,7 +13,7 @@ export default {
     return {
       version: version.nch5,
       nc: null,
-      id: `nc-${parseInt(Math.random() * 1000000000)}`
+      id: setId()
     }
   },
   props: single,

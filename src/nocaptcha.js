@@ -5,8 +5,7 @@ import render from './public/render'
 import ncpc from './ali/nc'
 import nch5 from './ali/nch5'
 import version from './ali/version'
-import getLang from './utils/getLang'
-import warn from './utils/warn'
+import { warn, getLang, setId } from './utils'
 
 export default {
   name,
@@ -15,7 +14,7 @@ export default {
     return {
       version,
       nc: null,
-      id: `nc-${parseInt(Math.random() * 1000000000)}`
+      id: setId()
     }
   },
   props: mix,
