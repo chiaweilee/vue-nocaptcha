@@ -6,6 +6,7 @@ import ncpc from './ali/nc'
 import nch5 from './ali/nch5'
 import version from './ali/version'
 import getLang from './utils/getLang'
+import warn from './utils/warn'
 
 export default {
   name,
@@ -35,12 +36,12 @@ export default {
         if (typeof props[name] === 'object') {
           if (h5) {
             return props[name]['h5'] || (() => {
-              console.warn(`[Vue-noCAPTCHA] Can not find H5-${name} preset in H5 mode, use PC preset instead.`)
+              warn(`Can not find H5-${name} preset in H5 mode, use PC preset instead.`)
               return props[name]['pc']
             })()
           } else {
             return props[name]['pc'] || (() => {
-              console.warn(`[Vue-noCAPTCHA] Can not find PC-${name} preset in PC mode, use H5 preset instead.`)
+              warn(`Can not find PC-${name} preset in PC mode, use H5 preset instead.`)
               return props[name]['h5']
             })()
           }
